@@ -24,6 +24,5 @@ private:
 	std::string m_currentTxtrName;
 	Buffer m_buffer;
 	Texture m_texture;
-	Material m_material;
 
 };

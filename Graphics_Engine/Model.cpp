@@ -178,8 +178,6 @@ void Model::Render(const Shader& shader)
 			"colorIn", Buffer::VBOType::ColorBuffer, Buffer::ComponentType::RGBA, Buffer::DataType::FloatData);
 		buffer.LinkVBO(shader,
 			"textureIn", Buffer::VBOType::TextureBuffer, Buffer::ComponentType::UV, Buffer::DataType::FloatData);
-		buffer.LinkVBO(shader,
-			"normalIn", Buffer::VBOType::NormalBuffer, Buffer::ComponentType::XYZ, Buffer::DataType::FloatData);
 
 		for (auto mat : m_materials)
 		{
@@ -225,9 +223,6 @@ void Model::FillBuffers()
 
 		buffer.FillVBO(Buffer::VBOType::TextureBuffer,
 			&mesh.textureCoords[0].x, mesh.textureCoords.size() * sizeof(glm::vec2), Buffer::FillType::Once);
-
-		buffer.FillVBO(Buffer::VBOType::NormalBuffer,
-			&mesh.normals[0].x, mesh.normals.size() * sizeof(glm::vec3), Buffer::FillType::Once);
 
 		for (const auto& vertex : mesh.vertices)
 		{

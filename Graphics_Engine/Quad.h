@@ -23,6 +23,5 @@ private:
 
 	Buffer m_buffer;	
 	Texture m_texture;
-	Material m_material;
 
 };

@@ -13,7 +13,6 @@
 #include "Cube.h"
 #include "Grid.h"
 #include "Input.h"
-#include "Light.h"
 #include "Model.h"
 #include "Quad.h"
 #include "Screen.h"
@@ -140,9 +139,6 @@ int main(int argc, char* argv[])
 	Shader defaultShader;
 	defaultShader.Create("Shaders/Default.vert", "Shaders/Default.frag");
 
-	Shader lightShader;
-	lightShader.Create("Shaders/Light.vert", "Shaders/Light.frag");
-
 	//================================================================
 
 	Grid grid;
@@ -231,7 +227,6 @@ int main(int argc, char* argv[])
 		Screen::Instance()->Present();
 	}
 
-	lightShader.Destroy();	
 	defaultShader.Destroy();	
 
 	Shader::Shutdown();

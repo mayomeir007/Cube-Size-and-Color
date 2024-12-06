@@ -78,12 +78,6 @@
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
@@ -94,9 +88,6 @@
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Grid.cpp">
-      <Filter>Source Files\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Light.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
     <ClCompile Include="imgui\imgui.cpp">
@@ -146,12 +137,6 @@
     <ClInclude Include="Utility.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
@@ -162,9 +147,6 @@
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Grid.h">
-      <Filter>Header Files\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Light.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="imgui\imconfig.h">
@@ -197,12 +179,6 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\Default.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\Light.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\Light.vert">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

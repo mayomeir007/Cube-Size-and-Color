@@ -11,10 +11,8 @@ public:
 	static Input* Instance();
 
 	bool IsXClicked() const;
-	bool IsKeyPressed() const;
 
-	char GetKeyUp() const;
-	char GetKeyDown() const;
+
 	int GetMouseWheel() const;
 
 	bool IsLeftButtonClicked() const;

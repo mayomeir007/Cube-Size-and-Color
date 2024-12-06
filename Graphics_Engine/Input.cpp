@@ -30,20 +30,6 @@ bool Input::IsXClicked() const
 	return m_isXClicked;
 }
 
-bool Input::IsKeyPressed() const
-{
-	return m_isKeyPressed;
-}
-
-char Input::GetKeyUp() const
-{
-	return m_keyUp;
-}
-
-char Input::GetKeyDown() const
-{
-	return m_keyDown;
-}
 
 bool Input::IsLeftButtonClicked() const
 {

@@ -13,8 +13,7 @@ public:
 	{ 
 		VertexBuffer, 
 		ColorBuffer, 
-		TextureBuffer,
-		NormalBuffer
+		TextureBuffer
 	};
 	
 	enum class ComponentType 

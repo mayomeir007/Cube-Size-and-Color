@@ -82,23 +82,6 @@ Cube::Cube(const std::string& textureFilename, Grid* parentGrid) : Object(parent
 					  0.0f, 1.0f, 1.0f, 1.0f,
 					  1.0f, 0.0f, 0.0f, 0.0f };    //Bottom face
 
-	GLfloat normals[] = { 0.0f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
-						  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,      //Front face 
-
-						   0.0f,  0.0f, -1.0f,  0.0f,  0.0f, -1.0f,
-						   0.0f,  0.0f, -1.0f,  0.0f,  0.0f, -1.0f,	    //Back face
-
-						  -1.0f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
-						  -1.0f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,	    //Left face
-
-						   1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
-						   1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,	    //Right face
-
-						   0.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-						   0.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,	    //Top face
-
-						   0.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f,
-						   0.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f };   //Bottom face
 
 	GLuint indices[] = { 0,  1,  3,  3,  1,  2,      //Front face
 						 4,  5,  7,  7,  5,  6,      //Back face 
@@ -112,15 +95,10 @@ Cube::Cube(const std::string& textureFilename, Grid* parentGrid) : Object(parent
 	m_buffer.FillVBO(Buffer::VBOType::VertexBuffer, vertices, sizeof(vertices), Buffer::FillType::Once);
 	m_buffer.FillVBO(Buffer::VBOType::ColorBuffer, colors, sizeof(colors), Buffer::FillType::Once);
 	m_buffer.FillVBO(Buffer::VBOType::TextureBuffer, UVs, sizeof(UVs), Buffer::FillType::Once);
-	m_buffer.FillVBO(Buffer::VBOType::NormalBuffer, normals, sizeof(normals), Buffer::FillType::Once);
 	m_buffer.LinkEBO();
 	
 	m_texture.Load("Textures/" + textureFilename);
 	m_currentTxtrName = textureFilename;
-	m_material.SetShininess(50.0f);
-	m_material.SetAmbient(glm::vec3(0.4f, 0.4f, 0.4f));
-	m_material.SetDiffuse(glm::vec3(0.1f, 0.7f, 0.2f));
-	m_material.SetSpecular(glm::vec3(0.8f, 0.8f, 0.8f));
 }
 
 Cube::~Cube()
@@ -150,12 +128,9 @@ void Cube::Render(const Shader& shader)
 	Object::Render(shader);
 	shader.SendData("isTextured", m_isTextured);
 
-	m_material.SendToShader(shader);
-
 	m_buffer.LinkVBO(shader, "vertexIn", Buffer::VBOType::VertexBuffer, Buffer::ComponentType::XYZ, Buffer::DataType::FloatData);
 	m_buffer.LinkVBO(shader, "colorIn", Buffer::VBOType::ColorBuffer, Buffer::ComponentType::RGBA, Buffer::DataType::FloatData);
 	m_buffer.LinkVBO(shader, "textureIn", Buffer::VBOType::TextureBuffer, Buffer::ComponentType::UV, Buffer::DataType::FloatData);
-	m_buffer.LinkVBO(shader, "normalIn", Buffer::VBOType::NormalBuffer, Buffer::ComponentType::XYZ, Buffer::DataType::FloatData);
 
 	if (m_isTextured)
 	{
